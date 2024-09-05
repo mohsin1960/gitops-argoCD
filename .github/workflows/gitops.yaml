@@ -96,5 +96,6 @@ jobs:
           sed -i "s#${{ github.actor }}.*#${{ github.actor }}/gitops01:${{ github.sha }}#g" deployment.yaml
           git add -A
           git commit -am "Update image for - ${{ github.sha }}"
+          echo "Commit Done...!"
       - run: echo ${{ github }}
       - run: git push origin master
