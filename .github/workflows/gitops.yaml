@@ -85,7 +85,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: mohsin1960/gitops-argoCD
+          repository: gitops-argoCD-infra-yaml
           ref: 'master'
           token: ${{ secrets.G_TOKEN }}
       - name: setup git config
@@ -93,7 +93,7 @@ jobs:
           git config --global user.email "i201960@nu.edu.pk"
           git config --global user.name "mohsin1960"
           echo ${{ github.sha }}
-          sed -i "s#${{ github.actor }}.*#${{ github.actor }}/gitops01:${{ github.sha }}#g" gitops-infra/deployment.yaml
+          sed -i "s#${{ github.actor }}.*#${{ github.actor }}/gitops01:${{ github.sha }}#g" deployment.yaml
           git add -A
           git commit -am "Update image for - ${{ github.sha }}"
       - run: echo ${{ github }}
