@@ -92,10 +92,16 @@ jobs:
         run: |
           git config --global user.email "i201960@nu.edu.pk"
           git config --global user.name "mohsin1960"
-          echo ${{ github.sha }}
+      - name: Debug deployment.yaml before sed
+        run: cat deployment.yaml
+      - name: Replace image tag
+        run: |
           sed -i "s#${{ github.actor }}.*#${{ github.actor }}/gitops01:${{ github.sha }}#g" deployment.yaml
-          git add -A
-          git commit -am "Update image for - ${{ github.sha }}"
-          echo "Commit Done...!"
-      - run: echo ${{ github }}
-      - run: git push origin master
+      - name: Debug deployment.yaml after sed
+        run: cat deployment.yaml
+      - name: Commit and push changes
+        run: |
+          git add deployment.yaml
+          git commit -m "Update image for - ${{ github.sha }}" || echo "No changes to commit"
+          git push origin master
+
