@@ -8,7 +8,7 @@ function App() {
         <img src={logo} className='App-logo' alt='logo' />
         <div style={{ fontSize: 30 }}>
           Version{' '}
-          <span style={{ color: 'red' }}>Github->GithubAction->DockerHub->ArgoCD->GitOps.....!!!</span>
+          <span style={{ color: 'red' }}>Github->GithubAction->DockerHub->ArgoCD->GitOps.....!!!!!1</span>
         </div>
       </header>
     </div>
