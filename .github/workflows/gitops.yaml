@@ -96,8 +96,8 @@ jobs:
         run: cat deployment.yaml
       - name: Replace image tag
         run: |
-          #sed -i "s#${{ github.actor }}.*#${{ github.actor }}/gitops01:${{ github.sha }}#g" deployment.yaml
-          sed -i "s#\(mohsin1960/gitops01:\)\(.*\)#\1${{ github.sha }}#g" deployment.yaml
+          sed -i "s#${{ github.actor }}.*#${{ github.actor }}/gitops01:${{ github.sha }}#g" deployment.yaml
+          #sed -i "s#\(mohsin1960/gitops01:\)\(.*\)#\1${{ github.sha }}#g" deployment.yaml
       - name: Debug deployment.yaml after sed
         run: cat deployment.yaml
       - name: Commit and push changes
